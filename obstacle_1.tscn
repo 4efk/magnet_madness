@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjjx4ch2v8sx4"]
+
+[ext_resource type="Script" path="res://ObstacleScript.gd" id="1_fko04"]
+[ext_resource type="Texture2D" uid="uid://bv6cq6tuu4wqq" path="res://Textures/fire2.png" id="2_88xxc"]
+[ext_resource type="Texture2D" uid="uid://c4yohujdp4du8" path="res://Textures/fire.png" id="2_r8v6i"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y8d40"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_r8v6i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_88xxc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s2nm5"]
+size = Vector2(88, 123)
+
+[node name="Obstacle1" type="Area2D"]
+script = ExtResource("1_fko04")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(86, -150)
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_y8d40")
+autoplay = "default"
+frame = 1
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -11.5)
+shape = SubResource("RectangleShape2D_s2nm5")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

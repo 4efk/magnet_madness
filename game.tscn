@@ -1,0 +1,337 @@
+[gd_scene load_steps=13 format=3 uid="uid://cbrk7drrlxubs"]
+
+[ext_resource type="Script" path="res://GameScript.gd" id="1_msxqw"]
+[ext_resource type="PackedScene" uid="uid://ba3qj1sk57xmw" path="res://player.tscn" id="1_ut6oq"]
+[ext_resource type="FontFile" uid="uid://bho8hwojk1rof" path="res://Fonts/press-start-2p/PressStart2P-Regular.ttf" id="2_3nhc0"]
+[ext_resource type="Script" path="res://MenuScript.gd" id="2_shhec"]
+[ext_resource type="AudioStream" uid="uid://bcw1ja83nmjkb" path="res://Music&Sounds/die.wav" id="4_w8tf6"]
+[ext_resource type="Texture2D" uid="uid://dyd7tqvci6bpx" path="res://Textures/walls.png" id="5_y6s5n"]
+
+[sub_resource type="Animation" id="Animation_hxtkv"]
+resource_name = "pulse"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DeadText/Text3:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["press any button to restart"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DeadText/Text3:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [null, Color(0, 0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DeadText/Text3:theme_override_colors/font_outline_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(-0.1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [null, Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s4myr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DeadText/Text3:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["press any button to restart"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DeadText/Text3:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DeadText/Text3:theme_override_colors/font_outline_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayText/Text3:theme_override_colors/font_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.6)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlayText/Text3:theme_override_colors/font_outline_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4dto4"]
+resource_name = "pulse23"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayText/Text3:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayText/Text3:theme_override_colors/font_outline_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DeadText/Text3:theme_override_colors/font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DeadText/Text3:theme_override_colors/font_outline_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.987508), Color(0, 0, 0, 0), Color(0, 0, 0, 0.987508)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tedci"]
+_data = {
+"RESET": SubResource("Animation_s4myr"),
+"pulse": SubResource("Animation_hxtkv"),
+"pulse23": SubResource("Animation_4dto4")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqya3"]
+size = Vector2(176, 1280)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xnxf"]
+size = Vector2(724, 161)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_msxqw")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("2_shhec")
+
+[node name="PlayText" type="Node2D" parent="CanvasLayer"]
+
+[node name="Title" type="Label" parent="CanvasLayer/PlayText"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = 720.0
+offset_bottom = 720.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("2_3nhc0")
+theme_override_font_sizes/font_size = 45
+text = "Magnet Madness"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Text2" type="Label" parent="CanvasLayer/PlayText"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 90.0
+offset_right = 720.0
+offset_bottom = 848.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("2_3nhc0")
+theme_override_font_sizes/font_size = 15
+text = "Made in 3 hours for TriJam 238.
+Thanks for playing!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Text3" type="Label" parent="CanvasLayer/PlayText"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 487.0
+offset_right = 720.0
+offset_bottom = 1180.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.6)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("2_3nhc0")
+theme_override_font_sizes/font_size = 20
+text = "press any button to start"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DeadText" type="Node2D" parent="CanvasLayer"]
+visible = false
+
+[node name="Title" type="Label" parent="CanvasLayer/DeadText"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = 720.0
+offset_bottom = 720.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("2_3nhc0")
+theme_override_font_sizes/font_size = 45
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Text2" type="Label" parent="CanvasLayer/DeadText"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 78.0
+offset_right = 720.0
+offset_bottom = 848.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("2_3nhc0")
+theme_override_font_sizes/font_size = 25
+text = "score: 13"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Text3" type="Label" parent="CanvasLayer/DeadText"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 487.0
+offset_right = 720.0
+offset_bottom = 1180.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("2_3nhc0")
+theme_override_font_sizes/font_size = 19
+text = "press any button to restart"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreText" type="Label" parent="CanvasLayer"]
+visible = false
+offset_right = 720.0
+offset_bottom = 101.0
+theme_override_fonts/font = ExtResource("2_3nhc0")
+theme_override_font_sizes/font_size = 24
+text = "score: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource("4_w8tf6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+autoplay = "pulse23"
+libraries = {
+"": SubResource("AnimationLibrary_tedci")
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(360, -300)
+
+[node name="Environment" type="Node2D" parent="."]
+position = Vector2(0, -940)
+
+[node name="Wall1" type="StaticBody2D" parent="Environment"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Wall1"]
+position = Vector2(0, 640)
+shape = SubResource("RectangleShape2D_hqya3")
+
+[node name="Wall2" type="StaticBody2D" parent="Environment"]
+position = Vector2(720, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Wall2"]
+position = Vector2(0, 640)
+shape = SubResource("RectangleShape2D_hqya3")
+
+[node name="Walls" type="Sprite2D" parent="Environment"]
+texture_filter = 1
+position = Vector2(360, 641)
+scale = Vector2(8, 8)
+texture = ExtResource("5_y6s5n")
+
+[node name="Player" parent="." instance=ExtResource("1_ut6oq")]
+position = Vector2(360, 950)
+
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="DeleteArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeleteArea"]
+position = Vector2(373, 1500)
+shape = SubResource("RectangleShape2D_0xnxf")

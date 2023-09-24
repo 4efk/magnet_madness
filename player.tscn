@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://ba3qj1sk57xmw"]
+
+[ext_resource type="Script" path="res://PlayerScript.gd" id="2_2ah6a"]
+[ext_resource type="Texture2D" uid="uid://bs3u3pvrbo58o" path="res://Textures/player.png" id="2_r7ame"]
+[ext_resource type="AudioStream" uid="uid://cd5n3xcxw4kkw" path="res://Music&Sounds/stuck.wav" id="3_2ya8l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lawak"]
+size = Vector2(72, 48)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("2_2ah6a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(8, 8)
+texture = ExtResource("2_r7ame")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lawak")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_2ya8l")
